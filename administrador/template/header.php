@@ -34,6 +34,7 @@ if(!isset($_SESSION['usuario'])){
         <a class="nav-item nav-link active" href="#">Administrador del sitio web <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/inicio.php">Inicio</a>
         <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/sesion/productos.php">Productos</a>
+        <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/sesion/inventario.php">Inventario</a>
         <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/sesion/cerrar.php">cerrar sesión</a>
         <a class="nav-item nav-link" href="<?php echo $url;?>">Ver sitio</a>
     </div>
