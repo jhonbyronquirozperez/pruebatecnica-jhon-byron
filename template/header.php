@@ -28,7 +28,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="nosotros.php">Nosotros</a>
+                <a class="nav-link" href="administrador/index.php">Inicio de sesión</a>
             </li>
         </ul>
     </nav>

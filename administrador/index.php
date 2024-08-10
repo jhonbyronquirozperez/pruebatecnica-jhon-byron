@@ -35,11 +35,11 @@ if($_POST){
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-  <body>
+  <body class="bg-light">
   
   <!-- formulario login -->
-    <div class="container ">
-    <br><br>
+    <div class="container   ">
+    <br><br><br><br>
         <div class="row ">
         
             <div class="col-md-4 mx-auto">
@@ -47,7 +47,7 @@ if($_POST){
             <!-- Card contenedor -->
              <div class="card ">
                 <div class="card-header">
-                    Inicio de sesión
+                     usuario y contraseña " 123 "
                 </div>
                 <div class="card-body">
                
@@ -63,16 +63,16 @@ if($_POST){
 
                     <div class = "form-group">
                         <label >Usuario</label>
-                        <input type="text" class="form-control" name="usuario" placeholder="Ingresa con el usuario => 123">
-                        <small id="emailHelp" class="form-text text-muted">El usuario y la contraseña para ingresar es: "123"</small>
+                        <input type="text" class="form-control" name="usuario" placeholder="Ingresa con el usuario ">
+                        <small id="emailHelp" class="form-text text-muted">El usuario y la contraseña para ingresar es: 123</small>
                     </div>
 
                     <div class="form-group">
                         <label >contraseña:</label>
-                        <input type="password" class="form-control" name="contraseña"  placeholder="Ingresa la contraseña => 123">
+                        <input type="password" class="form-control" name="contraseña"  placeholder="Ingresa la contraseña ">
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Ingresar como administrador</button>
+                    <button type="submit" class="btn btn-primary">Ingresar </button>
 
                 </form>
                 <!-- /formulario -->

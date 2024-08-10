@@ -19,15 +19,23 @@ include("../config/bd.php");
 switch($accion){
     case "Agregar":
 
-        $sentenciaSQL= $conexion->prepare("INSERT INTO producto (id,nombre,descripcion,precio,cantidad_en_stock) VALUES (:id,:nombre,:descripcion,:precio,:cantidad_en_stock);");
-        $sentenciaSQL->bindParam(':id',$txtID);
-        $sentenciaSQL->bindParam(':nombre',$txtNombre);
-        $sentenciaSQL->bindParam(':descripcion',$txtDescription);
-        $sentenciaSQL->bindParam(':precio',$decimalPrice);
-        $sentenciaSQL->bindParam(':cantidad_en_stock',$stockQuantity);
-        $sentenciaSQL->execute();
-
-        header("Location:productos.php");
+        try {
+            $sentenciaSQL= $conexion->prepare("INSERT INTO producto (id,nombre,descripcion,precio,cantidad_en_stock) VALUES (:id,:nombre,:descripcion,:precio,:cantidad_en_stock);");
+            $sentenciaSQL->bindParam(':id', $txtID);
+            $sentenciaSQL->bindParam(':nombre', $txtNombre);
+            $sentenciaSQL->bindParam(':descripcion', $txtDescription);
+            $sentenciaSQL->bindParam(':precio', $decimalPrice);
+            $sentenciaSQL->bindParam(':cantidad_en_stock', $stockQuantity);
+            $sentenciaSQL->execute();
+            
+            header("Location: productos.php");
+        } catch (PDOException $e) {
+            if ($e->getCode() == 23000) { 
+                echo "<script>alert('No se pueden agregar valores con el mismo ID.');</script>";
+            } else {
+                throw $e; 
+            }
+        }
         break;
     case "Modificar":
         
@@ -75,7 +83,9 @@ case "Seleccionar":
 
         
         header("Location:productos.php");
-        break;     
+        break;
+        
+        
 }
 
 ### Mostrar los datos ###
@@ -94,6 +104,8 @@ $listaProductos = $sentenciaSQL -> fetchAll(PDO::FETCH_ASSOC);
         </div>
 
         <div class="card-body">
+
+ 
         
         <!-- todo el formulario -->
             <form method="POST" enctype="multipart/form-data">
@@ -110,7 +122,7 @@ $listaProductos = $sentenciaSQL -> fetchAll(PDO::FETCH_ASSOC);
 
             <div class = "form-group">
             <label for="decimalPrice">Precio</label>
-            <input type="number" class="form-control" id="decimalPrice" value="<?php echo $decimalPrice; ?>" name="decimalPrice"  placeholder="Precio">
+            <input type="number" class="form-control" step="0.001" id="decimalPrice" value="<?php echo $decimalPrice; ?>" name="decimalPrice"  placeholder="Precio">
             </div>
 
             <div class = "form-group">
