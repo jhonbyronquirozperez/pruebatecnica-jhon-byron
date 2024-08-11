@@ -1,5 +1,6 @@
 <?php  
 
+#### Cookies ###
 session_start();
 
 # redireccion del formulario y envio session
@@ -12,16 +13,10 @@ if($_POST){
         header('location:inicio.php');
     }else{
         $mensaje = "!!!ERROR: El usuario y contraseña es literal (123)";
-    }
-
-    
+    }   
 }
 
 ?>
-
-
-
-
 
 
 <!doctype html>
@@ -77,11 +72,6 @@ if($_POST){
                 </form>
                 <!-- /formulario -->
                 
-                
-
-
-
-
 
                 </div>
              </div>   

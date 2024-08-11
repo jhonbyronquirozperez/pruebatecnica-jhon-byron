@@ -17,6 +17,7 @@ include("../config/bd.php");
 
 ### Acciones Modificar - Agregar -Cancelar ###
 switch($accion){
+
     case "Agregar":
 
         try {
@@ -37,6 +38,7 @@ switch($accion){
             }
         }
         break;
+
     case "Modificar":
         
         $campos = array_filter([
@@ -56,24 +58,24 @@ switch($accion){
     
     
 
-case "Seleccionar":
+    case "Seleccionar":
     
-    $sentenciaSQL = $conexion->prepare("SELECT * FROM producto WHERE id=:id");
-    $sentenciaSQL->bindParam(':id', $txtID);
-    $sentenciaSQL->execute();
-    $Producto = $sentenciaSQL->fetch(PDO::FETCH_LAZY);
+        $sentenciaSQL = $conexion->prepare("SELECT * FROM producto WHERE id=:id");
+        $sentenciaSQL->bindParam(':id', $txtID);
+        $sentenciaSQL->execute();
+        $Producto = $sentenciaSQL->fetch(PDO::FETCH_LAZY);
 
-    if ($Producto) {
-        $txtNombre = $Producto['nombre'];
-        $txtID = $Producto['id'];
-        $txtDescription = $Producto['descripcion'];
-        $decimalPrice = $Producto['precio'];
-        $stockQuantity = $Producto['cantidad_en_stock']; 
-    } else {
-        echo "Producto no encontrado.";
-    }
-    
-    break;
+        if ($Producto) {
+            $txtNombre = $Producto['nombre'];
+            $txtID = $Producto['id'];
+            $txtDescription = $Producto['descripcion'];
+            $decimalPrice = $Producto['precio'];
+            $stockQuantity = $Producto['cantidad_en_stock']; 
+        } else {
+            echo "Producto no encontrado.";
+        }
+        
+        break;
 
     case "Borrar":
 

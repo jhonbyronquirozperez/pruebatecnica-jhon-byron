@@ -23,9 +23,7 @@
                 <a class="nav-link" href="index.php">Inicio</a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="productos.php">Producto</a>
-            </li>
+            
 
             <li class="nav-item">
                 <a class="nav-link" href="administrador/index.php">Inicio de sesión</a>
